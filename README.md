@@ -15,6 +15,13 @@ A professional Python REST API service that provides AI-powered code remediation
 
 ## Prerequisites
 
+### Option 1: Docker (Recommended)
+
+- Docker and Docker Compose installed on your system
+- No other prerequisites needed! Everything is containerized.
+
+### Option 2: Local Installation
+
 1. **Ollama Service**: Make sure Ollama is running at `127.0.0.1:11434`
    ```bash
    # Install Ollama if not already installed
@@ -64,7 +71,44 @@ remediation/
 
 ## Installation
 
-### Development Installation
+### Option 1: Docker Installation (Recommended)
+
+1. Clone this repository and navigate to the project directory:
+   ```bash
+   cd remediation
+   ```
+
+2. Start the services using Docker Compose:
+   ```bash
+   docker-compose up -d
+   ```
+   This will:
+   - Build the remediation service image
+   - Pull and start the Ollama service
+   - Set up networking between services
+   - Configure health checks
+   - Mount necessary volumes for Ollama models
+
+3. The services will be available at:
+   - Remediation API: http://localhost:8000
+   - Ollama Service: http://localhost:11434
+
+4. To view logs:
+   ```bash
+   # View all logs
+   docker-compose logs -f
+
+   # View specific service logs
+   docker-compose logs -f remediation-api
+   docker-compose logs -f ollama-service
+   ```
+
+5. To stop the services:
+   ```bash
+   docker-compose down
+   ```
+
+### Option 2: Local Development Installation
 
 1. Clone this repository and navigate to the project directory:
    ```bash

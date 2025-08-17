@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  remediation-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_HOST=ollama-service
+      - OLLAMA_PORT=11434
+      - DEBUG=false
+    depends_on:
+      ollama-model-puller:
+        condition: service_completed_successfully
+    networks:
+      - remediation-network
+
+  ollama-service:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - remediation-network
+
+  ollama-model-puller:
+    image: curlimages/curl:latest
+    depends_on:
+      - ollama-service
+    networks:
+      - remediation-network
+    command: >
+      sh -c "
+        echo 'Waiting for Ollama service to be ready...' &&
+        until curl -f http://ollama-service:11434/api/version; do
+          echo 'Waiting for Ollama...'
+          sleep 5
+        done &&
+        echo 'Pulling llama3.2 model...' &&
+        curl -X POST http://ollama-service:11434/api/pull -d '{\"name\": \"llama3.2\"}' &&
+        echo 'Model download completed!'
+      "
+
+volumes:
+  ollama-data:
+
+networks:
+  remediation-network:
+    driver: bridge

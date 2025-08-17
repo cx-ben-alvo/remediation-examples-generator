@@ -47,15 +47,16 @@ class Settings(BaseSettings):
     @validator("ollama_host")
     def validate_ollama_host(cls, v: str) -> str:
         """Validate Ollama host format"""
-        # Allow localhost, IP addresses, and domain names
+        # Allow localhost, IP addresses, domain names, and Docker service names
         ip_pattern = re.compile(r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
         domain_pattern = re.compile(r"^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$")
+        service_name_pattern = re.compile(r"^[a-zA-Z0-9](?:[a-zA-Z0-9-_]{0,61}[a-zA-Z0-9])?$")
         
         if v in ["localhost", "127.0.0.1"]:
             return v
-        if ip_pattern.match(v) or domain_pattern.match(v):
+        if ip_pattern.match(v) or domain_pattern.match(v) or service_name_pattern.match(v):
             return v
-        raise ValueError("Invalid host format. Must be localhost, IP address, or valid domain name")
+        raise ValueError("Invalid host format. Must be localhost, IP address, domain name, or service name")
 
     @validator("ollama_port")
     def validate_ollama_port(cls, v: int) -> int:
