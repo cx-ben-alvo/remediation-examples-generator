@@ -3,8 +3,10 @@
 import os
 from pathlib import Path
 from typing import Optional
+import re
 
 from pydantic_settings import BaseSettings
+from pydantic import validator
 
 
 class Settings(BaseSettings):
@@ -41,6 +43,26 @@ class Settings(BaseSettings):
         if self.vorpal_path is None:
             project_root = Path(__file__).parent.parent.parent.parent
             self.vorpal_path = str(project_root / "resources" / "vorpal_cli_darwin_arm64")
+
+    @validator("ollama_host")
+    def validate_ollama_host(cls, v: str) -> str:
+        """Validate Ollama host format"""
+        # Allow localhost, IP addresses, and domain names
+        ip_pattern = re.compile(r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
+        domain_pattern = re.compile(r"^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$")
+        
+        if v in ["localhost", "127.0.0.1"]:
+            return v
+        if ip_pattern.match(v) or domain_pattern.match(v):
+            return v
+        raise ValueError("Invalid host format. Must be localhost, IP address, or valid domain name")
+
+    @validator("ollama_port")
+    def validate_ollama_port(cls, v: int) -> int:
+        """Validate Ollama port number"""
+        if not 1 <= v <= 65535:
+            raise ValueError("Port must be between 1 and 65535")
+        return v
 
     @property
     def ollama_base_url(self) -> str:
