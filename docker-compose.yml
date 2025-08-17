@@ -11,6 +11,7 @@ services:
       - OLLAMA_HOST=ollama-service
       - OLLAMA_PORT=11434
       - DEBUG=false
+      - VORPAL_PATH=/usr/local/bin/vorpal
     depends_on:
       ollama-model-puller:
         condition: service_completed_successfully

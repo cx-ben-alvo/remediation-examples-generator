@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     ollama_timeout: int = 60
     
     # Vorpal Scanner Configuration
-    vorpal_path: Optional[str] = None
+    vorpal_path: str = "/usr/local/bin/vorpal"  # Default container path
     max_retries: int = 5
     
     # Security
@@ -39,10 +39,12 @@ class Settings(BaseSettings):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # Set default Vorpal path if not configured
-        if self.vorpal_path is None:
+        # Fallback to local development path if container path doesn't exist
+        if not os.path.exists(self.vorpal_path):
             project_root = Path(__file__).parent.parent.parent.parent
-            self.vorpal_path = str(project_root / "resources" / "vorpal_cli_darwin_arm64")
+            local_path = project_root / "resources" / "vorpal_cli_darwin_arm64"
+            if local_path.exists():
+                self.vorpal_path = str(local_path)
 
     @validator("ollama_host")
     def validate_ollama_host(cls, v: str) -> str:

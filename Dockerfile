@@ -19,6 +19,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application
 COPY . .
 
+# Copy vorpal binary to standard container path and make it executable
+COPY resources/vorpal_cli_darwin_arm64 /usr/local/bin/vorpal
+RUN chmod +x /usr/local/bin/vorpal
+
 # Install the package in development mode
 RUN pip install -e .
 
