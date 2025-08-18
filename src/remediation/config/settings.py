@@ -19,11 +19,11 @@ class Settings(BaseSettings):
     port: int = 8000
     debug: bool = False
     
-    # Ollama Configuration
-    ollama_host: str = "127.0.0.1"
+    # Ollama Configuration (Local Server)
+    ollama_host: str = "localhost"  # Changed to localhost for local usage
     ollama_port: int = 11434
-    ollama_model: str = "llama3.2"
-    ollama_timeout: int = 60
+    ollama_model: str = "llama3.2"  # More commonly available model for local setups
+    ollama_timeout: int = 120  # Increased timeout for local generation
     
     # Vorpal Scanner Configuration
     vorpal_path: str = "/usr/local/bin/vorpal"  # Default container path
@@ -36,6 +36,8 @@ class Settings(BaseSettings):
         env_file = ".env"
         env_file_encoding = "utf-8"
         case_sensitive = False
+        # Allow environment variables with REMEDIATION_ prefix
+        env_prefix = "REMEDIATION_"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

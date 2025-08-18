@@ -8,45 +8,19 @@ services:
     ports:
       - "127.0.0.1:8000:8000"
     environment:
-      - OLLAMA_HOST=ollama-service
-      - OLLAMA_PORT=11434
       - DEBUG=false
       - VORPAL_PATH=/usr/local/bin/vorpal
-    depends_on:
-      ollama-model-puller:
-        condition: service_completed_successfully
+      # Ollama Configuration for Local Server
+      - REMEDIATION_OLLAMA_HOST=host.docker.internal  # Access local Ollama from container
+      - REMEDIATION_OLLAMA_PORT=11434
+      - REMEDIATION_OLLAMA_MODEL=llama3.2
+      - REMEDIATION_OLLAMA_TIMEOUT=30
+    extra_hosts:
+      - "host.docker.internal:host-gateway"  # Allow container to access local Ollama
     networks:
       - remediation-network
-
-  ollama-service:
-    image: ollama/ollama:latest
-    ports:
-      - "127.0.0.1:11434:11434"
-    volumes:
-      - ollama-data:/root/.ollama
-    networks:
-      - remediation-network
-
-  ollama-model-puller:
-    image: curlimages/curl:latest
-    depends_on:
-      - ollama-service
-    networks:
-      - remediation-network
-    command: >
-      sh -c "
-        echo 'Waiting for Ollama service to be ready...' &&
-        until curl -f http://ollama-service:11434/api/version; do
-          echo 'Waiting for Ollama...'
-          sleep 5
-        done &&
-        echo 'Pulling llama3.2 model...' &&
-        curl -X POST http://ollama-service:11434/api/pull -d '{\"name\": \"llama3.2\"}' &&
-        echo 'Model download completed!'
-      "
-
-volumes:
-  ollama-data:
+    # Note: This service expects Ollama to be running locally on the host machine
+    # Start Ollama locally first: ollama serve
 
 networks:
   remediation-network:

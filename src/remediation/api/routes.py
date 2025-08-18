@@ -184,12 +184,18 @@ async def health_check(
         # Check Ollama service
         ollama_healthy = await ollama_client.health_check()
         if not ollama_healthy:
-            logger.warning("Ollama service is not healthy")
+            logger.warning(f"Ollama service is not healthy at {settings.ollama_base_url}")
+            logger.info("Make sure Ollama is running: ollama serve")
+            logger.info(f"Make sure model is installed: ollama pull {settings.ollama_model}")
+        else:
+            logger.info("Ollama service is healthy")
         
         # Check Vorpal scanner
         vorpal_healthy = await vorpal_scanner.health_check()
         if not vorpal_healthy:
             logger.warning("Vorpal scanner is not healthy")
+        else:
+            logger.info("Vorpal scanner is healthy")
         
         # Service is healthy if basic functionality works
         # Dependencies being down is logged but doesn't fail health check

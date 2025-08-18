@@ -51,10 +51,22 @@ def create_app() -> FastAPI:
     async def startup_event():
         """Application startup event"""
         logger.info(f"Starting {settings.app_name} v{settings.app_version}")
-        logger.info(f"Ollama endpoint: {settings.ollama_base_url}")
+        logger.info(f"API server: http://{settings.host}:{settings.port}")
+        logger.info("=" * 50)
+        logger.info("LOCAL OLLAMA CONFIGURATION:")
+        logger.info(f"  Endpoint: {settings.ollama_base_url}")
+        logger.info(f"  Model: {settings.ollama_model}")
+        logger.info(f"  Timeout: {settings.ollama_timeout}s")
+        logger.info("=" * 50)
         logger.info(f"Vorpal path: {settings.vorpal_path}")
         logger.info(f"Max retries: {settings.max_retries}")
         logger.info(f"Supported languages: {', '.join(settings.allowed_languages)}")
+        logger.info("=" * 50)
+        logger.info("SETUP CHECKLIST FOR LOCAL OLLAMA:")
+        logger.info("  1. Start Ollama: ollama serve")
+        logger.info(f"  2. Install model: ollama pull {settings.ollama_model}")
+        logger.info("  3. Test health: curl -X GET http://localhost:8000/health")
+        logger.info("=" * 50)
     
     @app.on_event("shutdown")
     async def shutdown_event():

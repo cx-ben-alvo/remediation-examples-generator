@@ -103,8 +103,14 @@ class OllamaClient:
                 return generated_text
                 
         except httpx.TimeoutException:
-            error_msg = "Timeout while communicating with Ollama service"
+            error_msg = f"Timeout while communicating with Ollama service at {self.base_url}"
             logger.error(error_msg)
+            logger.info("This may indicate the model is not loaded or the request is taking too long")
+            raise Exception(error_msg)
+        except httpx.ConnectError as e:
+            error_msg = f"Cannot connect to Ollama service at {self.base_url}"
+            logger.error(error_msg)
+            logger.info("Make sure Ollama is running locally: ollama serve")
             raise Exception(error_msg)
         except httpx.RequestError as e:
             error_msg = f"Network error while communicating with Ollama: {str(e)}"
@@ -150,27 +156,74 @@ class OllamaClient:
             
         return cleaned_response
     
+    async def check_model_availability(self) -> bool:
+        """
+        Check if the specified model is available in the local Ollama instance.
+        
+        Returns:
+            True if model is available, False otherwise
+        """
+        try:
+            url = f"{self.base_url}/api/tags"
+            async with httpx.AsyncClient(timeout=10.0) as client:
+                response = await client.get(url)
+                if response.status_code == 200:
+                    models_data = response.json()
+                    available_models = [model["name"] for model in models_data.get("models", [])]
+                    model_available = any(self.model in model_name for model_name in available_models)
+                    
+                    if not model_available:
+                        logger.warning(f"Model '{self.model}' not found. Available models: {available_models}")
+                        logger.info(f"To install the model, run: ollama pull {self.model}")
+                    
+                    return model_available
+                return False
+        except Exception as e:
+            logger.warning(f"Failed to check model availability: {e}")
+            return False
+
     async def health_check(self) -> bool:
         """
-        Check if Ollama service is available.
+        Check if Ollama service is available and model is installed.
         
         Returns:
             True if service is available, False otherwise
         """
         try:
-            # Test with a simple chat request
-            url = f"{self.base_url}/api/chat"
-            payload = {
-                "model": self.model,
-                "messages": [{"role": "user", "content": "test"}],
-                "stream": False
-            }
-            
+            # First check if Ollama service is running
+            url = f"{self.base_url}/api/version"
             async with httpx.AsyncClient(timeout=10.0) as client:
-                response = await client.post(url, json=payload)
+                response = await client.get(url)
+                if response.status_code != 200:
+                    logger.warning(f"Ollama service not accessible at {self.base_url}")
+                    logger.info("Make sure Ollama is running locally: ollama serve")
+                    return False
+                
+                logger.debug(f"Ollama service running at {self.base_url}")
+                
+                # Check if model is available
+                model_available = await self.check_model_availability()
+                if not model_available:
+                    logger.warning(f"Model '{self.model}' not available")
+                    return False
+                
+                # Test with a simple chat request
+                chat_url = f"{self.base_url}/api/chat"
+                payload = {
+                    "model": self.model,
+                    "messages": [{"role": "user", "content": "test"}],
+                    "stream": False
+                }
+                
+                response = await client.post(chat_url, json=payload)
                 is_healthy = response.status_code == 200
                 logger.debug(f"Ollama health check: {'healthy' if is_healthy else 'unhealthy'}")
                 return is_healthy
+                
+        except httpx.ConnectError as e:
+            logger.warning(f"Cannot connect to Ollama at {self.base_url}")
+            logger.info("Make sure Ollama is running locally: ollama serve")
+            return False
         except Exception as e:
             logger.warning(f"Ollama health check failed: {e}")
             return False

@@ -2600,3 +2600,172 @@ remediationAdvice
 2025-08-17 10:50:01,763 - src.remediation.services.ollama_client - INFO - Generated 727 characters of remediated code
 2025-08-17 10:50:01,849 - src.remediation.services.vorpal_scanner - INFO - Scan 088cbf72-4d9b-4e8b-bbdd-314d59b369eb completed with 0 vulnerabilities
 2025-08-17 10:50:01,850 - src.remediation.api.routes - INFO - Successfully generated secure code after 3 attempts
+2025-08-17 17:37:20,658 - __main__ - INFO - Starting server on 0.0.0.0:8000
+2025-08-17 17:37:20,751 - src.remediation.main - INFO - Starting Code Remediation Service v1.0.0
+2025-08-17 17:37:20,751 - src.remediation.main - INFO - API server: http://0.0.0.0:8000
+2025-08-17 17:37:20,751 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:37:20,751 - src.remediation.main - INFO - LOCAL OLLAMA CONFIGURATION:
+2025-08-17 17:37:20,752 - src.remediation.main - INFO -   Endpoint: http://localhost:11434
+2025-08-17 17:37:20,752 - src.remediation.main - INFO -   Model: llama3.2
+2025-08-17 17:37:20,752 - src.remediation.main - INFO -   Timeout: 30s
+2025-08-17 17:37:20,752 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:37:20,752 - src.remediation.main - INFO - Vorpal path: /Users/benalvo/CxDev/workspace/Pheonix-workspace/remediation/resources/vorpal_cli_darwin_arm64
+2025-08-17 17:37:20,752 - src.remediation.main - INFO - Max retries: 5
+2025-08-17 17:37:20,752 - src.remediation.main - INFO - Supported languages: python, javascript, java, go, csharp, c#
+2025-08-17 17:37:20,752 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:37:20,752 - src.remediation.main - INFO - SETUP CHECKLIST FOR LOCAL OLLAMA:
+2025-08-17 17:37:20,752 - src.remediation.main - INFO -   1. Start Ollama: ollama serve
+2025-08-17 17:37:20,752 - src.remediation.main - INFO -   2. Install model: ollama pull llama3.2
+2025-08-17 17:37:20,752 - src.remediation.main - INFO -   3. Test health: curl -X GET http://localhost:8000/health
+2025-08-17 17:37:20,752 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:37:49,145 - src.remediation.main - INFO - Shutting down Code Remediation Service
+2025-08-17 17:37:52,525 - __main__ - INFO - Starting server on 0.0.0.0:8000
+2025-08-17 17:37:52,544 - src.remediation.main - INFO - Starting Code Remediation Service v1.0.0
+2025-08-17 17:37:52,544 - src.remediation.main - INFO - API server: http://0.0.0.0:8000
+2025-08-17 17:37:52,544 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:37:52,544 - src.remediation.main - INFO - LOCAL OLLAMA CONFIGURATION:
+2025-08-17 17:37:52,544 - src.remediation.main - INFO -   Endpoint: http://localhost:11434
+2025-08-17 17:37:52,544 - src.remediation.main - INFO -   Model: llama3.2
+2025-08-17 17:37:52,544 - src.remediation.main - INFO -   Timeout: 30s
+2025-08-17 17:37:52,544 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:37:52,544 - src.remediation.main - INFO - Vorpal path: /Users/benalvo/CxDev/workspace/Pheonix-workspace/remediation/resources/vorpal_cli_darwin_arm64
+2025-08-17 17:37:52,544 - src.remediation.main - INFO - Max retries: 5
+2025-08-17 17:37:52,544 - src.remediation.main - INFO - Supported languages: python, javascript, java, go, csharp, c#
+2025-08-17 17:37:52,545 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:37:52,545 - src.remediation.main - INFO - SETUP CHECKLIST FOR LOCAL OLLAMA:
+2025-08-17 17:37:52,545 - src.remediation.main - INFO -   1. Start Ollama: ollama serve
+2025-08-17 17:37:52,545 - src.remediation.main - INFO -   2. Install model: ollama pull llama3.2
+2025-08-17 17:37:52,545 - src.remediation.main - INFO -   3. Test health: curl -X GET http://localhost:8000/health
+2025-08-17 17:37:52,545 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:38:44,070 - src.remediation.main - INFO - Shutting down Code Remediation Service
+2025-08-17 17:38:53,835 - __main__ - INFO - Starting server on 0.0.0.0:8000
+2025-08-17 17:38:54,159 - src.remediation.main - INFO - Starting Code Remediation Service v1.0.0
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - API server: http://0.0.0.0:8000
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - LOCAL OLLAMA CONFIGURATION:
+2025-08-17 17:38:54,160 - src.remediation.main - INFO -   Endpoint: http://localhost:11434
+2025-08-17 17:38:54,160 - src.remediation.main - INFO -   Model: llama3.2
+2025-08-17 17:38:54,160 - src.remediation.main - INFO -   Timeout: 30s
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - Vorpal path: /Users/benalvo/CxDev/workspace/Pheonix-workspace/remediation/resources/vorpal_cli_darwin_arm64
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - Max retries: 5
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - Supported languages: python, javascript, java, go, csharp, c#
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - SETUP CHECKLIST FOR LOCAL OLLAMA:
+2025-08-17 17:38:54,160 - src.remediation.main - INFO -   1. Start Ollama: ollama serve
+2025-08-17 17:38:54,160 - src.remediation.main - INFO -   2. Install model: ollama pull llama3.2
+2025-08-17 17:38:54,160 - src.remediation.main - INFO -   3. Test health: curl -X GET http://localhost:8000/health
+2025-08-17 17:38:54,160 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:39:31,849 - watchfiles.main - INFO - 1 change detected
+2025-08-17 17:39:31,990 - src.remediation.main - INFO - Shutting down Code Remediation Service
+2025-08-17 17:39:32,358 - watchfiles.main - INFO - 1 change detected
+2025-08-17 17:39:32,616 - src.remediation.main - INFO - Starting Code Remediation Service v1.0.0
+2025-08-17 17:39:32,616 - src.remediation.main - INFO - API server: http://0.0.0.0:8000
+2025-08-17 17:39:32,616 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:39:32,616 - src.remediation.main - INFO - LOCAL OLLAMA CONFIGURATION:
+2025-08-17 17:39:32,616 - src.remediation.main - INFO -   Endpoint: http://localhost:11434
+2025-08-17 17:39:32,617 - src.remediation.main - INFO -   Model: llama3.2
+2025-08-17 17:39:32,617 - src.remediation.main - INFO -   Timeout: 120s
+2025-08-17 17:39:32,617 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:39:32,617 - src.remediation.main - INFO - Vorpal path: /Users/benalvo/CxDev/workspace/Pheonix-workspace/remediation/resources/vorpal_cli_darwin_arm64
+2025-08-17 17:39:32,617 - src.remediation.main - INFO - Max retries: 5
+2025-08-17 17:39:32,617 - src.remediation.main - INFO - Supported languages: python, javascript, java, go, csharp, c#
+2025-08-17 17:39:32,617 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:39:32,617 - src.remediation.main - INFO - SETUP CHECKLIST FOR LOCAL OLLAMA:
+2025-08-17 17:39:32,617 - src.remediation.main - INFO -   1. Start Ollama: ollama serve
+2025-08-17 17:39:32,617 - src.remediation.main - INFO -   2. Install model: ollama pull llama3.2
+2025-08-17 17:39:32,617 - src.remediation.main - INFO -   3. Test health: curl -X GET http://localhost:8000/health
+2025-08-17 17:39:32,617 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:39:32,722 - watchfiles.main - INFO - 3 changes detected
+2025-08-17 17:39:38,682 - src.remediation.main - INFO - Shutting down Code Remediation Service
+2025-08-17 17:39:42,421 - __main__ - INFO - Starting server on 0.0.0.0:8000
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - Starting Code Remediation Service v1.0.0
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - API server: http://0.0.0.0:8000
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - LOCAL OLLAMA CONFIGURATION:
+2025-08-17 17:39:42,440 - src.remediation.main - INFO -   Endpoint: http://localhost:11434
+2025-08-17 17:39:42,440 - src.remediation.main - INFO -   Model: llama3.2
+2025-08-17 17:39:42,440 - src.remediation.main - INFO -   Timeout: 120s
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - Vorpal path: /Users/benalvo/CxDev/workspace/Pheonix-workspace/remediation/resources/vorpal_cli_darwin_arm64
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - Max retries: 5
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - Supported languages: python, javascript, java, go, csharp, c#
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - SETUP CHECKLIST FOR LOCAL OLLAMA:
+2025-08-17 17:39:42,440 - src.remediation.main - INFO -   1. Start Ollama: ollama serve
+2025-08-17 17:39:42,440 - src.remediation.main - INFO -   2. Install model: ollama pull llama3.2
+2025-08-17 17:39:42,440 - src.remediation.main - INFO -   3. Test health: curl -X GET http://localhost:8000/health
+2025-08-17 17:39:42,440 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:40:38,732 - src.remediation.main - INFO - Shutting down Code Remediation Service
+2025-08-17 17:41:48,139 - __main__ - INFO - Starting server on 0.0.0.0:8000
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - Starting Code Remediation Service v1.0.0
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - API server: http://0.0.0.0:8000
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - LOCAL OLLAMA CONFIGURATION:
+2025-08-17 17:41:48,166 - src.remediation.main - INFO -   Endpoint: http://localhost:11434
+2025-08-17 17:41:48,166 - src.remediation.main - INFO -   Model: llama3.2
+2025-08-17 17:41:48,166 - src.remediation.main - INFO -   Timeout: 120s
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - Vorpal path: /Users/benalvo/CxDev/workspace/Pheonix-workspace/remediation/resources/vorpal_cli_darwin_arm64
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - Max retries: 5
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - Supported languages: python, javascript, java, go, csharp, c#
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:41:48,166 - src.remediation.main - INFO - SETUP CHECKLIST FOR LOCAL OLLAMA:
+2025-08-17 17:41:48,167 - src.remediation.main - INFO -   1. Start Ollama: ollama serve
+2025-08-17 17:41:48,167 - src.remediation.main - INFO -   2. Install model: ollama pull llama3.2
+2025-08-17 17:41:48,167 - src.remediation.main - INFO -   3. Test health: curl -X GET http://localhost:8000/health
+2025-08-17 17:41:48,167 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:42:59,332 - src.remediation.main - INFO - Shutting down Code Remediation Service
+2025-08-17 17:43:02,357 - __main__ - INFO - Starting server on 0.0.0.0:8000
+2025-08-17 17:43:02,378 - src.remediation.main - INFO - Starting Code Remediation Service v1.0.0
+2025-08-17 17:43:02,378 - src.remediation.main - INFO - API server: http://0.0.0.0:8000
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - LOCAL OLLAMA CONFIGURATION:
+2025-08-17 17:43:02,379 - src.remediation.main - INFO -   Endpoint: http://localhost:11434
+2025-08-17 17:43:02,379 - src.remediation.main - INFO -   Model: llama3.2
+2025-08-17 17:43:02,379 - src.remediation.main - INFO -   Timeout: 120s
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - Vorpal path: /Users/benalvo/CxDev/workspace/Pheonix-workspace/remediation/resources/vorpal_cli_darwin_arm64
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - Max retries: 5
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - Supported languages: python, javascript, java, go, csharp, c#
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - SETUP CHECKLIST FOR LOCAL OLLAMA:
+2025-08-17 17:43:02,379 - src.remediation.main - INFO -   1. Start Ollama: ollama serve
+2025-08-17 17:43:02,379 - src.remediation.main - INFO -   2. Install model: ollama pull llama3.2
+2025-08-17 17:43:02,379 - src.remediation.main - INFO -   3. Test health: curl -X GET http://localhost:8000/health
+2025-08-17 17:43:02,379 - src.remediation.main - INFO - ==================================================
+2025-08-17 17:43:09,540 - src.remediation.api.routes - INFO - Processing remediation request for go - SQL Injection
+2025-08-17 17:43:12,628 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-08-17 17:43:12,628 - src.remediation.services.ollama_client - INFO - Generated 483 characters of remediated code
+2025-08-17 17:43:12,630 - src.remediation.services.vorpal_scanner - ERROR - Scan ab10cc74-66fa-4cf8-a83f-06034fb2f788 failed: [Errno 13] Permission denied
+2025-08-17 17:43:12,630 - src.remediation.api.routes - INFO - Successfully generated secure code after 1 attempts
+2025-08-17 17:44:28,115 - src.remediation.api.routes - INFO - Processing remediation request for go - SQL Injection
+2025-08-17 17:44:30,868 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-08-17 17:44:30,869 - src.remediation.services.ollama_client - INFO - Generated 483 characters of remediated code
+2025-08-17 17:44:31,642 - src.remediation.services.vorpal_scanner - INFO - Scan 874e5df4-d73b-427e-a2f5-492df1ae10d4 completed with 3 vulnerabilities
+2025-08-17 17:44:31,643 - src.remediation.api.routes - WARNING - Attempt 1 had vulnerabilities: Insecure Error Logging (line 13: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 20: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 27: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.
+2025-08-17 17:44:35,309 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-08-17 17:44:35,310 - src.remediation.services.ollama_client - INFO - Generated 720 characters of remediated code
+2025-08-17 17:44:35,408 - src.remediation.services.vorpal_scanner - INFO - Scan e72d4ab5-3948-42f5-9349-6aee2a8be99f completed with 3 vulnerabilities
+2025-08-17 17:44:35,408 - src.remediation.api.routes - WARNING - Attempt 2 had vulnerabilities: Insecure Error Logging (line 22: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 29: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 36: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.
+2025-08-17 17:44:38,628 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-08-17 17:44:38,629 - src.remediation.services.ollama_client - INFO - Generated 564 characters of remediated code
+2025-08-17 17:44:38,737 - src.remediation.services.vorpal_scanner - INFO - Scan 836581f5-52ad-4852-99b7-8f89da471e4f completed with 3 vulnerabilities
+2025-08-17 17:44:38,737 - src.remediation.api.routes - WARNING - Attempt 3 had vulnerabilities: Insecure Error Logging (line 17: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 24: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 31: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.
+2025-08-17 17:44:39,684 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-08-17 17:44:39,685 - src.remediation.services.ollama_client - INFO - Generated 117 characters of remediated code
+2025-08-17 17:44:39,790 - src.remediation.services.vorpal_scanner - INFO - Scan 502d5385-ad89-4dd3-961f-bd428c55e1fd completed with 0 vulnerabilities
+2025-08-17 17:44:39,791 - src.remediation.api.routes - INFO - Successfully generated secure code after 4 attempts
+2025-08-17 17:44:59,765 - src.remediation.api.routes - INFO - Processing remediation request for go - SQL Injection
+2025-08-17 17:45:02,480 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-08-17 17:45:02,481 - src.remediation.services.ollama_client - INFO - Generated 483 characters of remediated code
+2025-08-17 17:45:02,602 - src.remediation.services.vorpal_scanner - INFO - Scan d51940ee-622b-4690-b6c7-d938e41937f6 completed with 3 vulnerabilities
+2025-08-17 17:45:02,602 - src.remediation.api.routes - WARNING - Attempt 1 had vulnerabilities: Insecure Error Logging (line 13: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 20: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 27: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.
+2025-08-17 17:45:06,175 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-08-17 17:45:06,176 - src.remediation.services.ollama_client - INFO - Generated 710 characters of remediated code
+2025-08-17 17:45:06,262 - src.remediation.services.vorpal_scanner - INFO - Scan 01fd68ef-88f2-4239-ab15-f1671b00920c completed with 3 vulnerabilities
+2025-08-17 17:45:06,263 - src.remediation.api.routes - WARNING - Attempt 2 had vulnerabilities: Insecure Error Logging (line 22: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 29: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.; Insecure Error Logging (line 36: 		fmt.Println(err)) description: Avoid logging sensitive error details in production code, as it might leak information.
+2025-08-17 17:45:09,382 - httpx - INFO - HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2025-08-17 17:45:09,383 - src.remediation.services.ollama_client - INFO - Generated 578 characters of remediated code
+2025-08-17 17:45:09,488 - src.remediation.services.vorpal_scanner - INFO - Scan 8f251027-02e2-484b-8c5b-542566b055d2 completed with 0 vulnerabilities
+2025-08-17 17:45:09,488 - src.remediation.api.routes - INFO - Successfully generated secure code after 3 attempts
